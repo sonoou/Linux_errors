@@ -1,0 +1,3 @@
+run this command
+git pull origin main --allow-unrelated-histories
+it will open nano editor, just save the file and exit

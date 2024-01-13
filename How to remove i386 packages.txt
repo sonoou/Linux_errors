@@ -1,0 +1,6 @@
+How to remove i386 architecture packages
+
+open terminal as root user
+type "dpkg --print-foreign-architectures" hit enter.
+it might show "i386"
+now type "dpkg -l | grep i386" it will show all i386 packages in system

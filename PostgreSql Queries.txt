@@ -1,0 +1,5 @@
+PostgreSql Queries
+
+Login: su - postgres
+       psql
+Permot a user as superuser: ALTER USER username WITH SUPERUSER;

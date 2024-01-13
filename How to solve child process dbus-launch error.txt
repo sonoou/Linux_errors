@@ -1,0 +1,6 @@
+How to solve child process dbus-launch error
+
+open terminal as root user
+type "apt install dbus-x11" hit enter 
+when it will be installed 
+go and see the changes

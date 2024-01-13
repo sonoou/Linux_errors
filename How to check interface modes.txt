@@ -1,0 +1,5 @@
+How to check supported interface modes
+
+open terminal as root user
+type "iw list" hit enter
+it will show you list of supported modes

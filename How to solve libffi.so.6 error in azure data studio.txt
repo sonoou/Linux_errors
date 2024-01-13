@@ -1,0 +1,5 @@
+How to solve libffi.so.6: in azure data studio
+
+Download packages from here
+http://mirrors.kernel.org/ubuntu/pool/main/libf/libffi/libffi6_3.2.1-8_amd64.deb
+and install then restart azure data studio

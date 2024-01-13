@@ -1,0 +1,34 @@
+System apps: 
+
+ShareMe                       > com.xiaomi.midrop
+Compass                       > com.miui.compass
+Services & Feedback           > com.miui.miservice
+SIM Tool Kit                  > com.android.stk
+Mi Pay                        > com.mipay.wallet.in
+Weather                       > com.miui.weather2
+Get Apps                      > com.xiaomi.mipicks
+Music                         > com.miui.player
+Assistant                     > com.google.android.apps.googleassistant
+Google Pay                    > com.google.android.apps.nbu.paisa.user
+Google                        > com.google.android.googlequicksearchbox
+Google One                    > com.google.android.apps.subscriptions.red
+Analytics                     > com.miui.analytics
+App vault                     > com.mi.android.globalminusscreen
+Find device                   > com.xiaomi.finddevice
+Fingerprint Extension Service > com.fingerprints.extension.service
+Facebook App Installer        > com.facebook.system
+Facebook App Manager          > com.facebook.appmanager
+Facebook Services             > com.facebook.services
+Fused Location                > com.android.location.fused
+Fused location provider       > com.xiaomi.location.fused
+Google Services Framework     > com.google.android.gsf
+HTML Viewer                   > com.android.htmlviewer
+IFAAService                   > org.ifaa.aidl.manager
+Sim app dialogue              > com.android.simappdialog
+3 Button Navigation Bar       > com.android.internal.systemui.navbar.threebutton
+Android Auto                  > com.google.android.projection.gearhead
+Android R Easter Egg          > com.android.egg
+Android Shared Library        > com.google.android.ext.shared
+Package installer             > com.miui.global.packageinstaller
+Package installer             > com.google.android.packageinstaller
+Play store                    > com.android.vending

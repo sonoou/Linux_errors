@@ -1,0 +1,6 @@
+How to solve slow internet issue
+
+open terminal as root user
+type "mousepad /etc/apt/sources.list"
+you will see "deb https://http.kali.org/kali kali-rolling main non-free contrib"
+you have to write "kali.download" in place of "http.kali.org"

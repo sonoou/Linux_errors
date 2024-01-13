@@ -1,0 +1,13 @@
+How to install turbo C++ in linux
+
+open terminal as root
+type "apt update && apt upgrade" hit enter (Network connection required)
+when above process has done type "apt-get install dosbox" hit enter
+and once dosbox installed downoad turbo C++ zip file 
+Extract zip file and find this location "/Turbo.C.3.2/WinRoot/"
+you will there is a file "TURBOC3" 
+copy this file in home and open dosterminal
+type "mount c ~" hit enter and then type "c:" hit enter
+and type "dir" hit enter and you will "TURBOC3" directory
+type "cd TURBOC3" hit enter abd then type "dir" hit enter
+type "cd bin" hit enter and then type "tc" hit enter

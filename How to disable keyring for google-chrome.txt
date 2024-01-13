@@ -1,0 +1,16 @@
+How to disable keyring for google-chrome
+
+type "apt update && apt upgrade" hit enter ( internet required )
+type "apt-get install seahorse" hit enter
+and then terminal will ask you to confirm type "y" hit enter
+once it's installed
+open application tab search "pass"
+and you will see "passwords and keys" click on it
+in password section you will see "Login"
+right click on it and then "change password"
+a pop up window will appear it ask old password which is your linux password
+type your password and hit enter
+and then it will ask you for new password leave it blank 
+and click on continue. it will say "store passwords unencrypted"
+again click on continue and keyring will be disabled
+open chrome and see the changes

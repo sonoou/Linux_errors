@@ -1,0 +1,23 @@
+How to solve grub rescue is showing on boot up
+
+type "ls" this will output like
+(hd0) (hd0,gpt1) OR (hd1) (hd1,gpt1) OR both 
+The No. of disks and partitions depend on 
+how many disk you have and how many partition in that
+Now you have to check in which partition have "Filesystem is ext2"
+type "ls (hd[0 to n],gpt[0 to n])" hit enter
+Repeat above command unless you got output: Filesystem is ext2
+Now type "set boot=(hd[no.],gpt[no.])" 
+                        \        /
+                         \      /
+                          \    /
+                           \  /
+                            \/
+               That partition no. which shows
+                    "Filesystem is ext2"
+type "set prefix=(hd[same above],gpt[same above])/boot/grub" hit enter
+type "insmod normal" hit enter
+type "normal" hit enter
+once linux is started open terminal as root user
+type "update-grub" enter
+type "grub-install /dev/sda" enter

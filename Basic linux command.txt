@@ -1,0 +1,44 @@
+ifconfig - This command is use for checking IP address of machine and your machine communicate with internet or not
+
+clear - This command is use for clearing your executed command and much more thing which you have in terminal
+
+apt-get update && apt-get upgrade - This command is use for update all the packages in kali linux
+
+uname - This command is use for checking OS name and for more details you can type -r -a with uname
+
+history - This command is use for seeing command history which is performed in past couple of days
+
+ls - This command is use for showing list of folders and files of in which direcotory you are
+
+"cd .." - This command is use for back in one directory
+
+~ means you are in root directory
+/ means you are in user directory
+
+touch test.txt - This is for creating text file in current directory
+
+rm <file.ext> - This for remove file in current directory
+
+mkdir - This is for create a folder in current location
+
+rmdir - This is for remove folder in current location
+
+man ls - This is for manual of ls(list)
+
+cp <file.ext> /location/ - this is use for copy file
+
+ls -l <file.ext> This command shows the permissions of file
+ admin - rwx      1 execute
+ group - rw-      2 write
+ public- r--      4 read
+
+How to change permission of any file
+ chmod 764 <file.ext>
+
+How to turn on bluetooth
+
+/etc/init.d/bluetooth start <use to enable bluetooth>
+
+How to remove dir without removing internal dir
+
+type "rm -r <dir name>" this will delete a directory wheather dirctory is empty or not

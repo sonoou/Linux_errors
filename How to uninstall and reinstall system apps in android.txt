@@ -1,0 +1,13 @@
+How to uninstall and reinstall system apps in android
+
+connect android to computer and make sure
+you turn on adb debugging in developer option
+open terminal as root user
+and type "adb devices" hit enter
+this will show you list of adb devices
+and then type "adb shell" hit enter
+and you will see terminal prompt changes to "lancelot:/$"
+Now
+
+for Uninstall : pm uninstall -k --user 0 <package.name>
+for reinstall : pm install-existing <package.name>

@@ -1,0 +1,15 @@
+How to solve 'some formula symbols might not be displayed correctly due to missing fonts symbols,wingdings,wingdings2,wingsings3,webdings,MT extra
+
+open browser and download these fonts from the link given blow
+https://github.com/udoyen/wps-fonts
+open terminal as root user
+type "mkdir /usr/share/fonts/kingsoft" hit enter
+now extract the downloaded zip file
+to this location "/usr/share/fonts/kingsoft"
+restart WPS Office and see the changes
+
+Fastforward: copy all the lines given below at once and paste in terminal and hit enter 
+
+mkdir /usr/share/fonts/kingsoft
+git clone https://github.com/udoyen/wps-fonts
+mv "wps-fonts/wps/"* /usr/share/fonts/kingsoft

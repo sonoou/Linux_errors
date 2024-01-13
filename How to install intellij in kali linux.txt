@@ -1,0 +1,13 @@
+How to install itellij in kali linux
+
+open terminal as root user
+type "wget https://download.jetbrains.com/idea/ideaIC-2022.2.tar.gz" hit enter
+this will download intellij zip file
+type "cd <intellij location>" hit enter
+now type "tar -xvf <intellij_zip_name>" hit enter
+                   'OR'
+you can also use GUI application for extracting the file
+type "cd <intellij_extracted_filename>/bin" hit enter
+type "./idea.sh" hit enter
+
+How to create Desktop link for Intellij

@@ -1,0 +1,8 @@
+How to fix root terminal doesn't run when you click on it
+
+open terminal and type "sudo su" and hit enter
+enter your linux password and hit enter
+and type "update-alternatives --config x-terminal-emulator"
+and hit enter it will show some available terminal
+type a No. and hit enter
+open your root terminal and see the changes

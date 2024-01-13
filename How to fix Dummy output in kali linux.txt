@@ -1,0 +1,34 @@
+How to fix Dummy output in kali linux
+
+Method 1:(If doesn't work, Follow 2nd Method)
+
+	     open terminal as root user
+	   	 type "cd /etc/default/" hit enter
+	     type "ls" hit enter
+	     there is "grub" file you need to edit with any editor
+	     so i am gonna use mousepad editor
+	     type "mousepad grub" hit enter
+	     and you have to find GRUB_CMDLINE_LINUX_DEFAULT="quiet" and
+	     change to GRUB_CMDLINE_LINUX_DEFAULT="quiet snd_hda_intel.dmic_delect=0"
+   	     once changes are made save and close the mousepad editor
+	     then type command "update-grub" and it will take a bit time
+	     when it will be done reboot your system and see the changes
+
+Method 2:(If Doesn't work, Follow 3rd Method)
+
+	     Reference( https://www.kali.org/docs/troubleshooting/no-sound/ )
+	     Kali linux version 2022.3 & 2022.4(installed)
+	     type "apt list --installed | grep pipewire-pulse" hit enter
+	     If you get output like:
+	         WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+	  
+	         pipewire-pulse/kali-rolling,now 0.3.62-1 amd64 [installed,automatic]
+	      
+	     then type "apt purge --autoremove pipewire-pulse ; reboot" hit enter
+	     it perfectly worked in my case
+
+Method 3:(If This doesn't work too then find solution on internet)
+         
+         open terminal as root user
+         type "apt install pipewire-pulse" hit enter
+         type "reboot" hit enter

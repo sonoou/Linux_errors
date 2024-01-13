@@ -1,0 +1,6 @@
+How to solve "Dependency failed for mnt-UUID
+
+open terminal as root
+"nano /etc/fstab" enter
+remove lines which contain mount UUID at boot time
+save file and "systemctl daemon-reload" enter

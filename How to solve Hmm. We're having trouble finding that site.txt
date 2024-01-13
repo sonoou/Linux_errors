@@ -1,0 +1,11 @@
+How to solve "Hmm. We're having trouble finding that site"
+
+open terminal as root
+type "cd /etc/" hit enter
+type "ls" hit enter
+where you will see "resolv.conf" file
+remove it and make new one with the name resolv.conf using nano text editor otherwise it will not work
+type "nano resolv.conf" ( make sure you are in "/etc" directory )
+nano editor will be open with new file name "resolv.conf"
+in this file you have to write "nameserver 8.8.8.8"
+and press "ctrl+o" to save and hit enter and then press "ctrl+x" to exit from editor 

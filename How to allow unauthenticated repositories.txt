@@ -1,0 +1,6 @@
+How to install update from insecure repository
+
+open terminal as root user
+type "apt-get update --allow-unauthenticated" hit enter
+                      'OR'
+type "apt-get update --allow-insecure-repositories" hit enter 

@@ -1,0 +1,10 @@
+open terminal as root user
+type "cd /etc/default/" hit enter
+type "ls" hit enter
+there is "grub" file you need to edit with any editor
+so i am gonna use mousepad editor
+type "mousepad grub" hit enter
+you will see a "GRUB_DEFAULT=0" 0 for kali linux and 2 for windows 
+after changing the value 0 or 2 save and close
+and type command "update-grub" and it will take a bit time
+when it will done restart and see the changes

@@ -1,0 +1,20 @@
+How to install whatsapp
+
+open root terminal
+type apt update
+type apt install snapd
+type systemctl enable --now snapd apparmor
+type snap install whatsdesk
+
+How to install Google Chrome ( same for vs code )
+
+go to default browser and download chrome's debian file
+after download move the file on desktop
+right click on desktop and click on "open terminal here"
+type sudo dpkg -i <name of chrome's debian file>
+
+How to uninstall any software in kali linux
+
+open terminal and type "dpkg --list" it will show all packages installed in your linux
+find package name which you want to remove
+type "apt remove <package name>"

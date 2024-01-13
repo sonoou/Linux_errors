@@ -1,0 +1,5 @@
+How to solve  No remote refs found for ‘flathub’
+
+open terminal as root user
+type "flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo"
+hit enter

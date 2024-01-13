@@ -1,0 +1,9 @@
+	How to install uget download manager (only for kali linux)
+
+open terminal as root user 
+type "apt update" hit enter
+type "apt install uget" hit enter
+type "wget https://raw.githubusercontent.com/ugetdm/uget-integrator/master/install/linux/install_uget_integrator.sh" hit enter
+type "chmod +x install_uget_integrator.sh" hit enter
+type "./install_uget_integrator.sh" hit enter
+Now you have to download extension for your brower

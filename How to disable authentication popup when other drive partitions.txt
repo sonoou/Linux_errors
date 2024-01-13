@@ -1,0 +1,13 @@
+How to disable authentication popup when mounting other drive partitions
+
+open terminal as root user
+Type 'apt install gnome-disk-utility' hit enter
+once it is install now search application disk and open 
+select the drive and then partition in which
+you want to remove authentication
+and you see there is gear icon at dow of the partition
+click on it and you see a popup window comes and
+you will see 'User Session Deafaults' is turned on
+you have to turn it off and it will ask for password
+type your password and restart your machine.
+and see the changes

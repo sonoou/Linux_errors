@@ -1,0 +1,8 @@
+How to solve missing i915 firmware
+
+https://anduin.linuxfromscratch.org/sources/linux-firmware/i915/
+go to above link and download fireware according to your need
+and copy downloaded file in "/lib/firmware/i915/"
+open terminal as root user and
+type "update-initramfs -u -k all" hit enter
+it will take a bit time depend on your machine

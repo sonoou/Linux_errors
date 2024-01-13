@@ -1,0 +1,5 @@
+Terminal Emulater - A terminal emulater is basically a programme that will let us use the terminal in a graphical way
+
+What is a shell? - A shell in linux is basically its a commandline interface that will take all my commands as input like I'm saying "Hey create a new file" , "touch new file" and "show me all the networking details".
+
+where <command> it shows the location of command

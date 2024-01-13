@@ -1,0 +1,4 @@
+How to remove ppa repositories
+
+open terminal as root user
+type "apt-add-repository --remove ppa:<repo_name>

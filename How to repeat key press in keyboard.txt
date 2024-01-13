@@ -1,0 +1,12 @@
+How to solve repeat keys keyboard
+
+open settings
+click on accessibility and in typing section
+there is repeat keys
+turn on the repeat keys
+
+Alternate method(After reboot you have to again turn on)
+
+open terminal as root
+type "xset r on" hit enter
+go type anything and see the changes

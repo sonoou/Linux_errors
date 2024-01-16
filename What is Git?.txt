@@ -144,3 +144,8 @@ Fork:
 	settings with the original'upstream'
 	repository.
 	Fork is a rough copy.
+
+How to rename folder:
+	git mv <-old name-> <-new name->
+	git commit -m "folder name changed"
+	git push

@@ -149,3 +149,4 @@ How to rename folder:
 	git mv <-old name-> <-new name->
 	git commit -m "folder name changed"
 	git push
+

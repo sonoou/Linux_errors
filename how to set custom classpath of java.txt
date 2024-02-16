@@ -1,0 +1,16 @@
+How to set custome classpath of java
+
+Temporary classpath
+
+	1. open terminal
+	2. type "export CLASSPATH=<location>:"
+		NOTE: all letters of variable name must be capital
+			  if you have more than one path in variable
+			  then use ":" for separate and at the end of 
+			  path put ":" whether you have single path or 
+			  multi path it mandatory
+
+Permanent classpath
+
+	put "CLASSPATH=<location>" in /etc/environment file
+	and save it. restart your terminal and see the changes

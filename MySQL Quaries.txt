@@ -8,6 +8,14 @@ Review Permission: 	    SHOW GRANTS FOR 'username'@'hostname'
 Delete database:	    DROP DATABASE databasename
 Delete user:		    DROP USER 'username'@'localhost'
 
+Create table: 			CREATE TABLE Persons (
+    						PersonID int,
+    						LastName varchar(255),
+    						FirstName varchar(255),
+    						Address varchar(255),
+   	 						City varchar(255)
+						);
+
 
 ##########################
 #### GRANT OPTION are ####

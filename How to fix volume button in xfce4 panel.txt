@@ -1,0 +1,9 @@
+open terminal as root
+type "apt install xfce4-pulseaudio-plugin" hit enter
+right click on panel
+there is panel menu click on it
+and there is another menu "Add New items"
+click on it and search pulse then add button
+now right click on icon just appeared
+check the "enable keybord shortcut"
+see the chages

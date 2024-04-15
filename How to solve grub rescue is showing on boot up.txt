@@ -21,3 +21,8 @@ type "normal" hit enter
 once linux is started open terminal as root user
 type "update-grub" enter
 type "grub-install /dev/sda" enter
+
+if you got error like "grub-install: error: /usr/lib/grub/i386-pc/modinfo.sh doesn't exist. Please specify --target or --directory."
+
+then first "apt install grub-efi"
+then "grub-install /dev/sda"

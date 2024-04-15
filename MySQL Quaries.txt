@@ -1,6 +1,7 @@
 MySQL Quaries(CLI)
 
-Login: 			        mysql -u root -p
+Login: 			        mysql -u root -p // "root" is user you can replace with yours.
+Show all databases:     SHOW DATABASES;
 Create user: 		    CREATE USER 'username'@'hostname' IDENTIFIED BY '15061999'
 Granting Permission: 	GRANT ALL PRIVILEGES ON databasename TO 'username'@'hostname';
 Revoke Permission: 	    REVOKE name_of_permission ON databasename TO 'username'@'hostname' WITH GRANT OPTION

@@ -1,6 +1,6 @@
 MySQL Quaries(CLI)
 
-Login: 			        mysql -u root -p // "root" is user you can replace with yours.
+Login: 			        mysql ─u root ─p // "root" is user you can replace with yours.
 Show all databases:     SHOW DATABASES;
 Create user: 		    CREATE USER 'username'@'hostname' IDENTIFIED BY '15061999'
 Granting Permission: 	GRANT ALL PRIVILEGES ON databasename TO 'username'@'hostname';
@@ -25,3 +25,240 @@ UPDATE
 DROP
 INDEX
 ALL
+
+################################
+#### How to create database ####
+################################
+
+CREATE DATABASE name_of_database;
+
+################################
+#### How to delete database ####
+################################
+
+DROP DATABASE name_of_database;
+
+################################
+#### How to select database ####
+################################
+
+USE college; that means whatever we'll do all the changes will be made to 
+             selected database
+
+#############################
+#### How to create table ####
+#############################
+
+CREATE TABLE student(
+	id INT PRIMARY KEY,
+	name VARCHAR(50),
+	age INT NOT NULL,
+);
+
+#####################################
+#### How to insert data in table ####
+#####################################
+
+INSERT INTO student VALUES(1,"AMAN",26);
+INSERT INTO student VALUES(2,"SHRADHA",26);
+
+#################################
+#### How to print table data ####
+#################################
+
+SELECT * FROM student;
+
+#######################
+#### SQL Datatypes ####
+#######################
+┌────────┬───────────────────────────────────────────────────────────┬───────────┐
+│DATATYPE│ DESCRIPTION                                               │ USAGE     │
+├────────┼───────────────────────────────────────────────────────────┼───────────┤
+│CHAR    │string(0─255) can store characters of fixed length,CHAR(50)│CHAR(50)   │
+│        │means it will take 50 chars in memory whether you store 50 │           │
+│        │or less chars.                                             │           │
+├────────┼───────────────────────────────────────────────────────────┼───────────┤
+│VARCHAR │string(0─255) can store characters up to given length,     │VARCHAR(50)│
+│        │VARCHAR(50) means it will take memory = string length not  │           │
+│        │more than defined                                          │           │
+├────────┼───────────────────────────────────────────────────────────┼───────────┤
+│BLOB    │string(0─65535) can store binary large object, to files    │BLOB(1000) │
+├────────┼───────────────────────────────────────────────────────────┼───────────┤
+│INT     │integer(─2147483648 to 2147483647)                         │INT        │
+├────────┼───────────────────────────────────────────────────────────┼───────────┤
+│TINYINT │integer(─128 to 127)                                       │TINYINT    │
+├────────┼───────────────────────────────────────────────────────────┼───────────┤
+│BIGINT  │integer(─9223372026854775808 to 9223372026854775807)       │BIGINT     │
+├────────┼───────────────────────────────────────────────────────────┼───────────┤
+│BIT     │can store x─bit values,x can range from 1 to 64, BIT(1)    │BIT(2)     │
+│        │means, can store 0 or 1. BIT(2) mean 01,00,10,11           │           │
+├────────┼───────────────────────────────────────────────────────────┼───────────┤
+│FLOAT   │Decimal number with 23 precision                           │FLOAT      │
+├────────┼───────────────────────────────────────────────────────────┼───────────┤
+│DOUBLE  │Decimal number with 24 to 53 precision                     │DOUBLE     │
+├────────┼───────────────────────────────────────────────────────────┼───────────┤
+│BOOLEAN │Boolean values 0 or 1, It uses TINYINT in background       │BOOLEAN    │
+├────────┼───────────────────────────────────────────────────────────┼───────────┤
+│DATE    │Date in format YYYY─MM─DD ranging 1000-01-01 to 9999-12-31 │DATE       │
+├────────┼───────────────────────────────────────────────────────────┼───────────┤
+│TIME    │HH:MM:SS                                                   │TIME       │
+├────────┼───────────────────────────────────────────────────────────┼───────────┤
+│YEAR    │year in 4 digits format ranging from 1901 to 2155          │YEAR       │
+└────────┴───────────────────────────────────────────────────────────┴───────────┘
+
+Signed and Unsigned
+
+TINYINT UNSIGNED (0-255) negative number spaces will be 
+assigned for positive number
+
+TINYINT(-128 to 127)
+
+###############################
+#### Types of SQL commands ####
+###############################
+
+DDL(Data Definition Language):     CREATE,ALTER,RENAME,TRUNCATE & DROP
+DQL(Data Query Language):          SELECT
+DML(Data Manipulation Language):   INSERT,UPDATE,DELETE
+DCL(Data Control Language):        GRANT & REVOKE permission to users
+TCL(Transaction Control Language): START TRANSACTION, COMMIT & ROLLBACK e
+
+##################################
+#### Database related Queries ####
+##################################
+
+CREATE DATABASE db_name;
+CREATE DATABASE IF NOT EXISTS db_name;
+
+DROP DATABASE db_name;
+DROP DATABASE IF EXISTS db_name;
+
+SHOW DATABASES;
+SHOW TABLES;
+
+###############################
+#### Table related Queries ####
+###############################
+
+CREATE TABLE table_name(
+	colums_name1 datatype constraint,
+	column_name2 datatype constrain1,
+);
+
+SELECT * FROM table_name; view table
+
+INSERT INTO table_name(colname1,colname2)
+VALUES
+(col1_v1,col2_v1),
+(col1_v2,col2_v2);
+insert multiple row at once
+
+###########################
+#### Practice Question ####
+###########################
+
+Q. Create a database for your company named XYZ.
+	Step1: create a table inside this DB to store employee 
+	       info(id, name and salary).
+
+	Step2: Add following iniformation in the DB:
+			1, "adam", 25000
+			2, "bob", 30000
+			3, "casey", 40000
+	Step3: Select & view all your table data.
+
+A. CREATE DATABASE xyz;
+
+   CREATE TABLE employee(
+       id INT PRIMARY KEY;
+       name VARCHAR(50) NOT NULL;
+       salary INT;
+   );
+
+   INSERT INTO employee
+   (name,id,salary)
+   VALUES(1,"Adam",25000),
+   VALUES(2,"Bob",30000),
+   VALUES(3,"casey,40000);
+
+   SELECT * FROM employee;
+
+##############
+#### Keys ####
+##############
+
+Primary Key:
+─────────────
+It is a column(or set of columns) in a table the uniquely identifies each row.
+(a unique id)There is only 1 PK & it should be NOT null.
+
+Foreign Key:
+─────────────
+A forgein key is a column(or set of columns)in a table that refers to the primary 
+key in another table. There can be multiple FKs. FKs can have duplicate & null 
+values.
+        student                  city
+┌───┬─────┬──────┬──────┐   ┌───┬──────────┐              
+│id │name │cityId│city  │   │id │city_name │    
+├───┼─────┼──────┼──────┤   ├───┼──────────┤   
+│101│karan│1     │Pune  │   │101│karan     │         
+├───┼─────┼──────┼──────┤   ├───┼──────────┤  
+│102│arjun│2     │Mumbai│   │102│arjun     │        
+├───┼─────┼──────┼──────┤   ├───┼──────────┤   
+│103│ram  │1     │Pune  │   │103│ram       │         
+├───┼─────┼──────┼──────┤   └───┴──────────┘    
+│104│shyam│3     │Delhi │
+└───┴─────┴──────┴──────┘
+
+#####################
+#### Constraints ####
+#####################
+
+SQL constraints are used to specify rules for data in a 
+table
+
+NOT NULL - 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

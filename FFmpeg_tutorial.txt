@@ -1,0 +1,22 @@
+FFmpeg tutorial
+
+
+##############################
+#### How to rotate video: ####
+##############################
+	ffmpeg -i input.mp4 -vf "transpose=1" output.mp4
+
+	transpose option:
+	0 = 90 counter clockwise and vertical flip
+	1 = 90 clockwise.
+	2 = 90 counter-clockwise.
+	3 = 90 clockwise and vertical flip
+	"transpose=1,transpose=1" means 180 clockwise
+
+#############################
+#### Get frames of video ####
+#############################
+	ffmpeg -i input.mp4 -vf fps=60 ./frames/%04d.jpg
+
+	this extract 60 FPS per second
+	name output  0001.jpg and so on

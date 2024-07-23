@@ -1,0 +1,9 @@
+type "blkid" and hit enter
+it shows you all partitions of your HDD or SDD
+E.g. /dev/sda1: LABEL="root" UUID="bd0e1be9-6b44-4e63-93ee-a0b184f066d5" BLOCK_SIZE="4096" TYPE="ext4" PARTUUID="6a2c3f89-01"
+you have to find a partition that have LABEL="root" and TYPE="ext4"
+then type "fsck /dev/sda1 -y" hit enter
+                  ^
+          name of partition
+       that have root and ext4
+then type "reboot -f" hit enter

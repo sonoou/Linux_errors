@@ -1,0 +1,6 @@
+while loop
+----------->
+   while true
+   do
+   		[command]
+   done

@@ -94,8 +94,8 @@ Git Branches:
 
 					Features
                        ↓
-           ┌---○---○---○
-	○---○--┴---○---○
+           ┌───○───○───○
+	○───○──┴───○───○
 				   ↑
 				Master
 
@@ -115,7 +115,7 @@ Merging Code:
 
 		Pull Request:
 			It lets you tell others about changes you've
-			pushed to a branch i a repsitory on GitHub.
+			pushed to a branch in a repsitory on GitHub.
 
 Pull Command:
 	git pull origin main

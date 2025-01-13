@@ -1,0 +1,11 @@
+nano /etc/network/interfaces
+
+then type the following line into file
+
+----------------------
+auto eth0
+iface eth0  inet dhcp
+----------------------
+
+save and exit 
+reboot

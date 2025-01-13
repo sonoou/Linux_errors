@@ -1,0 +1,5 @@
+
+I just had the same error. 
+You can try enabling memory overcommiting, 
+by setting /proc/sys/vm/overcommit_memory to 1. 
+That worked for me

@@ -1,0 +1,17 @@
+Foreground text color:
+	"\033[38;5;NmYour String"
+
+Background text color:
+	"\033[48;5;NmYour String"
+
+how to print blinking text:
+	"\033[38;7;5mYour string"
+
+Bold text with color:
+	"\033[1;38;5;NmYour string"
+
+	replace N with 0 - 255 for different colors
+
+color, blink and bold:
+    \033[38;7;5m - for blink
+	\033[38;5;3m - for color

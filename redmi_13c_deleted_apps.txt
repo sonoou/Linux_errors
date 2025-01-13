@@ -1,0 +1,17 @@
+com.google.android.videos                            1. googel tv       
+com.google.android.apps.chromecast.app               2. google home      
+com.google.android.apps.subscriptions.red            3. google one       
+com.google.android.apps.subscriptions.red            4. google safety     
+com.google.android.apps.adm                          5. find my device     
+com.google.android.googlequicksearchbox              6. google search     
+com.miui.miservice                                   7. mi feedback & service    
+com.mi.globalminusscreen                             8. app vault       
+com.xiaomi.mipicks                                   9. mi get apps
+com.google.android.apps.youtube.music               10. ytmusic
+com.google.android.apps.messaging                   11. google message
+com.android.stk                                     12. sim tool kit
+com.miui.fm                                         13. mi radio
+com.miui.bugreport                                  14. mi feedback
+com.google.android.youtube                          15. youtube
+com.android.chrome                                  16. chrome
+com.miui.player                                     17. mi music

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        body{
+            overflow:hidden;
+        }
+        div{
+
+            width:2500px;
+            height:1300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="screen">
+
+    </div>
+    <script>
+        let i=-1;
+        function changeColor(){
+            var div = document.querySelector("#screen");
+            let clr = ["red","green","blue","black","white"];
+            i++; 
+            div.style.backgroundColor=clr[i];
+            if(i === 3){
+                i = -1;
+            }
+        }
+        document.querySelector("#screen").addEventListener("click", event => {
+            changeColor()
+        });
+    </script>
+</body>
+</html>

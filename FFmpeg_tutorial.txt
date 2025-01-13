@@ -1,6 +1,3 @@
-FFmpeg tutorial
-
-
 ##############################
 #### How to rotate video: ####
 ##############################
@@ -20,3 +17,7 @@ FFmpeg tutorial
 
 	this extract 60 FPS per second
 	name output  0001.jpg and so on
+
+Gif frames
+
+ffmpeg -i input.gif frame_%03d.png

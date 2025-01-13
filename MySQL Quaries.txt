@@ -1,21 +1,28 @@
 MySQL Quaries(CLI)
 
-Login: 			        mysql ─u root ─p // "root" is user you can replace with yours.
-Show all databases:     SHOW DATABASES;
-Create user: 		    CREATE USER 'username'@'hostname' IDENTIFIED BY '15061999'
-Granting Permission: 	GRANT ALL PRIVILEGES ON databasename TO 'username'@'hostname';
-Revoke Permission: 	    REVOKE name_of_permission ON databasename TO 'username'@'hostname' WITH GRANT OPTION
-Review Permission: 	    SHOW GRANTS FOR 'username'@'hostname'
-Delete database:	    DROP DATABASE databasename
-Delete user:		    DROP USER 'username'@'localhost'
+Login:         mysql ─u root ─p // "root" is user you can replace with yours.
+Show all databases:      SHOW DATABASES;
+Create user: 	         CREATE USER 'username'@'hostname' IDENTIFIED BY '15061999'
+Granting Permission: GRANT ALL PRIVILEGES ON databasename TO   'username'@'hostname';
+Revoke Permission: 	 REVOKE name_of_permission ON databasename TO 
+                         'username'@'hostname' WITH GRANT OPTION
+Review Permission: 	 SHOW GRANTS FOR 'username'@'hostname'
+Delete database:         DROP DATABASE databasename
+Delete user:	         DROP USER 'username'@'localhost'
 
-Create table: 			CREATE TABLE Persons (
-    						PersonID int,
-    						LastName varchar(255),
-    						FirstName varchar(255),
-    						Address varchar(255),
-   	 						City varchar(255)
-						);
+Create table:            CREATE TABLE Persons (
+    			             PersonID int,
+                             LastName varchar(255),
+                             FirstName varchar(255),
+                             Address varchar(255),
+                             City varchar(255)
+                         );
+
+CREATE SEQUENCE cseq INCREMENT BY 1 START WITH 1;
+
+INSERT INTO customer_table VALUES(CONCAT("c",NEXT VALUE FOR cseq),
+              "monu","null","monu@gmail.com","8076829193","4321");
+
 
 
 ##########################
@@ -61,7 +68,6 @@ CREATE TABLE student(
 
 INSERT INTO student VALUES(1,"AMAN",26);
 INSERT INTO student VALUES(2,"SHRADHA",26);
-
 #################################
 #### How to print table data ####
 #################################
@@ -123,6 +129,10 @@ DML(Data Manipulation Language):   INSERT,UPDATE,DELETE
 DCL(Data Control Language):        GRANT & REVOKE permission to users
 TCL(Transaction Control Language): START TRANSACTION, COMMIT & ROLLBACK e
 
+
+
+
+
 ##################################
 #### Database related Queries ####
 ##################################
@@ -183,6 +193,11 @@ A. CREATE DATABASE xyz;
 
    SELECT * FROM employee;
 
+
+
+
+
+
 ##############
 #### Keys ####
 ##############
@@ -201,11 +216,11 @@ values.
 ┌───┬─────┬──────┬──────┐   ┌───┬──────────┐              
 │id │name │cityId│city  │   │id │city_name │    
 ├───┼─────┼──────┼──────┤   ├───┼──────────┤   
-│101│karan│1     │Pune  │   │101│karan     │         
+│101│karan│1     │Pune  │   │1  │Pune      │         
 ├───┼─────┼──────┼──────┤   ├───┼──────────┤  
-│102│arjun│2     │Mumbai│   │102│arjun     │        
+│102│arjun│2     │Mumbai│   │2  │Mumbai    │        
 ├───┼─────┼──────┼──────┤   ├───┼──────────┤   
-│103│ram  │1     │Pune  │   │103│ram       │         
+│103│ram  │1     │Pune  │   │3  │Delhi     │         
 ├───┼─────┼──────┼──────┤   └───┴──────────┘    
 │104│shyam│3     │Delhi │
 └───┴─────┴──────┴──────┘
@@ -217,7 +232,224 @@ values.
 SQL constraints are used to specify rules for data in a 
 table
 
-NOT NULL - 
+NOT NULL - columns cannot have a null value
+           E.g. col1 int NOT NULL
+
+UNIQUE - all values in column are different and by default value can be NULL
+		 E.g. col2 int UNIQUE
+
+PRIMARY KEY - makes a column unique & not null but used only for one column
+		E.g. CREATE TABLE temp(			  		
+			id INT PRIMARY KEY
+		     );
+		            'OR'
+		     CREATE TABLE temp(			  		
+			id INT,
+			PRIMARY KEY (id)
+		     );
+			    'OR'
+		     CREATE TABLE temp(			  		
+			  id INT,
+			  name VARCHAR(50),
+			  PRIMARY KEY (id, name) --combination primary key
+		     );
+	             Combination primary key means "id" can be duplicate or "name" can be 
+	             duplicate, but both can not exactly duplicate at the same time
+			  	E.g.    id      name
+			  	        101     Sonu     -- true
+			  	        101     Loki     -- true
+			  	        102     Sandeep  -- true
+			  	        103     Sandeep  -- true
+			  	        101     Sonu     -- false
+
+
+FOREIGN KEY - it is used to links two tables. Prevent actions that would destroy 
+              links between tables
+              E.g. CREATE TABLE temp (
+              		cust_id int,
+              		FOREIGN KEY (cust_id) references customer(id)
+              	   );
+
+ DEFAULT - sets the dafault value of a column
+           E.g. salary INT DEFAULT 25000
+
+ CHECK - it can limit the values allowed in a column
+         E.g. CREATE TABLE city(
+         	   id INT PRIMARY KEY,
+                   city VARCHAR(50),
+         	   age INT,
+         	   CONSTRAINT age_check CHECK (age >= 18 AND city="Delhi");
+              );
+         	  	'OR'
+              CREATE TABLE newTab(
+         	   age INT CHECK (age >= 18)
+              );
+
+Que. CREATE DATABASE college;
+     USE college;
+     CREATE TABLE student(
+     	rollno INT PRIMARY KEY,
+     	name VARCHAR(50),
+     	marks INT NOT NULL,
+     	grade VARCHAR(1),
+     	city VARCHAR(20)
+     );
+
+     INSERT INTO student
+     (rollno, name, marks, grade, city)
+     VALUES
+     (101,"anil",78,"C","Pune"),
+     (102,"bhumika",93,"A","Mumbai"),
+     (103,"chetan",85,"B","Mumbai"),
+     (104,"dhruv",96,"A","Delhi"),
+     (105,"emanuel",12,"F","Delhi"),
+     (106,"farah",82,"B","Delhi");
+
+##########################
+#### SELECT in detail ####
+##########################
+
+ # SELECT name, marks FROM student;
+ # SELECT * FROM student;
+ # SELECT city FROM student;
+ # SELECT DISTINCT city FROM student;
+   -> DISTINCT means, duplicate values in city column are not visible
+
+######################
+#### WHERE clause ####
+######################
+
+To define some conditions
+SELECT col1,col2 FROM table_name WHERE conditins;
+
+SELECT * FROM student WHERE marks > 80;
+SELECT * FROM student WHERE city = "Mumbai";
+SELECT * FROM student WHERE marks > 80 AND city = "Mumbai";
+
+
+
+## Operators in WHERE clause
+
+   Arithmetic Operators: +, -, *, /, %
+   Comparison Operators: =, !=, >, >=, <, <=
+   		SELECT * FROM student WHERE marks+10 > 100;
+   		SELECT * FROM student WHERE marks = 93;
+   		SELECT * FROM student WHERE marks > 90;
+
+   Logical Operators: AND, OR, NOT, IN, BETWEEN, ALL, LIKE, ANY
+   Bitwise Operators: &(AND) , |(OR)
+
+  # AND - to check for both conditions to be true.
+          SELECT * FROM student WHERE marks > 80 AND city = "Mumbai";
+
+  # OR - to check for one of the conditions to be true
+         SELECT * FROM student WHERE marks > 90 OR city = "Mumbai";
+
+  # BETWEEN - selects for a given range
+              SELECT * FROM student WHERE marks BETWEEN 80 AND 90;
+
+  # IN - matches any value in the list
+         SELECT * FROM student WHERE city IN ("Delhi", "Mumbai");
+         SELECT * FROM student WHERE city IN ("Faridabad", "Gurgaon"); 
+
+  # NOT - to negate the given condition
+          SELECT * FROM student WHERE city NOT IN ("Delhi", "Mumbai");
+
+######################
+#### LIMIT clause ####
+######################
+
+Sets an upper limit on number of (tuples)rows to be returned
+	E.g. SELECT col1, col2 FROM table_name LIMIT number;
+		 SELECT * FROM student LIMIT 3;
+	     SELECT * FROM student WHERE marks > 75 LIMIT 3;
+
+#########################
+#### ORDER BY clause ####
+#########################
+
+To sort in ascending(ASC) or descending(DESC) order. ascending is by dafault 
+enabled
+	E.g. SELECT col1, col2 FROM table_name ORDER BY col_name(s) ASC;
+		 SELECT * FROM student ORDER BY city ASC;
+		 SELECT * FROM student ORDER BY marks ASC;
+		 SELECT * FROM student ORDER BY marks DESC;
+		 SELECT * FROM student ORDER BY marks DESC LIMIT 3;
+
+#############################
+#### Aggregate Functions ####
+#############################		 
+
+Aggregate functions perform a calculation on a set of values, and return a single 
+value.
+
+	-> COUNT()
+	-> MAX()
+	-> MIN()
+	-> SUM()
+	-> AVG()
+	E.g. SELECT MAX(marks) FROM student;
+	     SELECT AVG(marks) FROM student; 
+	     SELECT COUNT(rollno) FROM student;
+
+
+#########################
+#### GROUP BY clause ####
+#########################
+
+Groups rows that have the same values into summary rows. It collects data from
+multiple records and groups the result by one or more column.
+
+Generally we use group by with some aggregation function.
+
+Count number of students in each city
+SELECT city,COUNT(name) FROM student GROUP BY city;
+SELECT city, COUNT(rollno) FROM student GROUP BY city;
+SELECT city, name, COUNT(rollno) FROM student GROUP BY city, name;
+SELECT city, avg(marks) FROM student GROUP BY city;
+
+Que. Write the Query to find average marks in each city in ascending order.
+Ans. SELECT city, AVG(marks) FROM student GROUP BY city ORDER BY ASC;
+
+Que. For the given table, find the total payment according to each payment method.
+     
+      customer_id  customer           mode          city
+      101          Olivia Barrett     Netbanking    Portland
+      102          Ethan Sinclair     Credit Card   Miami
+      103          Maya Hernandez     Credit Card   Seattle
+      104          Liam Donovan       Netbanking    Denver
+      105          Sophia Nguyen      Credit Card   New Orleans
+      106          Caleb Foster       Debit Card    Minneapolis
+      107          Ava Patel          Debit Card    Phoenix
+      108          Lucas Carter       Netbanking    Boston
+      109          Isabella Martinez  Netbanking    Nashville
+      110          Jackson Brooks     Credit Card   Boston
+Ans. SELECT mode , COUNT(customer_id) FROM payment GROUP BY mode;
+
+#######################
+#### HAVING clause ####
+#######################
+
+Similar to WHERE clause i.e. applies some condition on rows. Used when we want to
+apply ant condition after grouping.
+
+count number of students in each where max marks cross 90.
+SELECT count(name), city FROM student GROUP BY city HAVING max(marks) > 90;
+
+## General Query Order
+   SELECT column(s)
+   FROM table_name
+   WHERE condition  --only works with rows
+   GROUP BY column(s)
+   HAVING condition --only works with groups
+   ORDER BY column(s) ASC;
+
+   E.g. SELECT city
+        FROM student
+        WHERE grade = "A"
+        GROUP BY city
+        HAVING MAX(marks) >= 93
+        ORDER BY city DESC;
 
 
 
@@ -226,6 +458,193 @@ NOT NULL -
 
 
 
+###############################
+#### Table ralated Queries ####
+###############################
+
+## UPDATE(to update existing rows)
+   E.g. UPDATE table_name
+        SET col1 = val1, col2 = val2
+        WHERE condition;
+
+        UPDATE student
+        SET grade = "0"
+        WHERE grade = "A";
+
+   Note: if you get error (Error Code: 1175. You are using safe update mode an...)
+         while updating your table First you need to turn off the safe mode
+          SET SQL_SAFE_UPDATES = 0; -- 1 for turn on 
+         Now update your table again.
+
+   UPDATE student SET marks = 82 WHERE rollno = 105;
+   UPDATE student SET grade = "B" WHERE marks BETWEEN 80 AND 90;
+   UPDATE student SET marks = marks + 1;
+
+## DELETE(to delete existing rows)
+	E.g.  DELETE FROM table_name
+          WHERE condition;
+
+          DELETE FROM student WHERE marks < 33;
+
+#################################
+#### Revisiting FOREIGN KEYS ####
+#################################
+
+CREATE TABLE dept( 
+	id INT PRIMARY KEY, 
+	name VARCHAR(50) 
+);
+
+CREATE TABLE teacher( 
+	id INT PRIMARY KEY, 
+	name VARCHAR(50), 
+	dept_id INT, 
+	FOREIGN KEY (dept_id) REFERENCES dept(id) 
+);
+
+Now table dept is a parent table because the PRIMARY KEY of it is referenced in 
+table teacher, and the teacher is a child table
+
+####################################
+#### Cascading for FOREIGN KEYS ####
+####################################
+
+On DELETE CASCADE: When we create a foreign key using this option, it delets the
+                   referencing rows in the child table when the referenced row is 
+                   deleted in the parent table which has a primary key.
+
+On UPDATE CASCADE: When we create a foreign keky using UPDATE CASCADE the 
+                   referencing rows are updated in the child table when the referenced row is
+                   
+                   updated in the parent table which has a 
+                   primary key
+
+E.g. CREATE TABLE teacher( 
+		id INT PRIMARY KEY, 
+		name VARCHAR(50), 
+		dept_id INT, 
+		FOREIGN KEY (dept_id) REFERENCES dept(id)
+		ON UPDATE CASCADE 
+		ON DELETE CASCADE
+	 );
+
+    Now if i make changes in dept table it is also reflected in teacher table
+
+## ALTER (to change the schema)
+  
+  # Add column: ALTER table_name ADD COLUMN column_name datatype constraint;
+                E.g. ALTER TABLE student ADD COLUMN age INT; 
+                     ALTER TABLE student ADD COLUMN age INT NOT NULL DEFAULT 19;
+
+  # Drop column: ALTER TABLE student DROP COLUMN column_name;
+                 E.g. ALTER TABLE student DROP COLUMN age;
+                      ALTER TABLE student DROP COLUMN stu_age;
+
+  # Change column: ALTER TABLE table_name CHANGE COLUMN old_name new_name 
+                   new_datatype new_constraint;
+                   E.g. ALTER TABLE student CHANGE COLUMN age stu_age INT;
+
+  # Modify column(datatype/constraint): ALTER TABLE table_name MODIFY col_name
+                                        new_datatype new constraint;
+                                E.g. ALTER TABLE student MODIFY age VARCHAR(2);
+
+  # Rename table: ALTER TABLE table_name RENAME TO new_table_name;
+                  E.g. ALTER TABLE student RENAME TO stu;
+
+## TRUNCATE (to delete table's data)
+  
+  # Difference between DROP and TRUNCATE: DROP deletes the table but TRUNCATE
+                                          deletes all the data inside table
+                                          E.g. TRUNCATE TABLE student;
+
+Que. In the student table:
+		a. Change the name of column "name" to "full_name".
+		b. Delete all the students who scored marks less than 80.
+		c. Delete the column for grades.
+Ans. a. ALTER TABLE student CHANGE COLUMN name full_name VARCHAR(50);
+                        'OR'
+        ALTER TABLE student CHANGE  name full_name VARCHAR(50);
+     b. DELETE FROM student WHERE marks < 80;
+     c. ALTER TABLE student DROP COLUMN grade;
+
+######################
+#### Joins in SQL ####
+######################
+
+let suppose we have two tables. One is to store employees data and second is to 
+store salary data.
+    employee            salary 
+┌─────┬───────┐   ┌─────┬───────────┐              
+│ id  │ name  │   │ id  │  salary   │    
+├─────┼───────┤   ├─────┼───────────┤   
+│ 101 │ karan │   │ 102 │ 500000    │         
+├─────┼───────┤   ├─────┼───────────┤  
+│ 102 │ arjun │   │ 103 │ 350000    │               
+└─────┴───────┘   └─────┴───────────┘
+We want print only matched details present in both tables for an employee.
+like employee 102 we want his name as well as salary.
+     
+Join is used to combine rows from two or more tables, based on related column 
+between them.
+
+
+## Types of Joins
+  
+  # Inner Join : common data between two tables.
+
+  # Outer Join : it has three types.
+                -> Left Join: left table data and common data between left and 
+                              right tables.
+
+                -> Right Join: Right table data and common data between left and 
+                               right tables.
+
+                -> Full Join: data of both tables with common data.
+
+####################
+#### Inner Join ####
+####################
+
+Return records that have matching values in both tables
+    -> Syntax : SELECT column(s) 
+                FROM tableA 
+                INNER JOIN tableB 
+                ON tableA.col_name = tableB.col_name;
+
+    select column from tableA join the table by using inner type on the basis
+    that tableA.col_name and tableB.col_name have a same column in both table
+
+    E.g.       student                  course 
+         ┌───────────┬──────┐   ┌────────────┬────────┐              
+         │student_id │name  │   │ student_id │course  │    
+         ├───────────┼──────┤   ├────────────┼────────┤   
+         │101        │adam  │   │ 102        │enlish  │         
+         ├───────────┼──────┤   ├────────────┼────────┤  
+         │102        │bob   │   │ 105        │math    │               
+         ├───────────┼──────┤   ├────────────┼────────┤  
+         │103        │casey │   │ 103        │science │               
+         └───────────┴──────┘   ├────────────┼────────┤  
+                                │ 107        │science │               
+                                └────────────┴────────┘
+    SELECT * FROM student INNER JOIN course ON student.student_id = 
+                                                course.student_id
+
+             Result
+    ┌───────────┬──────┬────────┐              
+    │student_id │name  │course  │    
+    ├───────────┼──────┼────────┤   
+    │102        │bob   │english │    
+    ├───────────┼──────┼────────┤   
+    │104        │casey │science │
+    └───────────┴──────┴────────┘
+
+  # Alias : alternate name or nickname
+    E.g. SELECT * 
+         FROM student as s 
+         INNER JOIN course as c 
+         ON student.student_id = course.student_id;
+    Now either we write student or s it refers to thing and same applies for 
+    course
 
 
 
@@ -234,31 +653,240 @@ NOT NULL -
 
 
 
+###################
+#### Left Join ####
+###################
 
+Returns all records from the left table, and the matched records from the right 
+table -> Sybtax : SELECT column(s)
+                  FROM tableA
+                  LEFT JOIN tableB
+                  ON tableA.col_name = tableB.col_name;
 
+ E.g. SELECT * FROM student LEFT JOIN course ON student.id = course.id;
 
+     Result
+    ┌───────────┬─────┬──────────┬────────┐              
+    │student_id │name │student_id│course  │    
+    ├───────────┼─────┼──────────┼────────┤   
+    │101        │adam │NULL      │NULL    │    
+    ├───────────┼─────┼──────────┼────────┤   
+    │102        │bob  │102       │english │    
+    ├───────────┼─────┼──────────┼────────┤   
+    │104        │casey│103       │science │
+    └───────────┴─────┴──────────┴────────┘
 
+####################
+#### Right Join ####
+####################
 
+Returns all records from the right table, and the matched records from the left 
+table -> Syntax : SELECT *
+                  FROM student
+                  RIGHT JOIN course 
+                  ON student.id = course.id;
+      Result
+    ┌───────────┬──────┬──────────┬────────┐              
+    │student_id │name  │student_id│course  │        
+    ├───────────┼──────┼──────────┼────────┤   
+    │102        │bob   │102       │english │    
+    ├───────────┼──────┼──────────┼────────┤   
+    │103        │casey │103       │science │    
+    ├───────────┼──────┼──────────┼────────┤   
+    │NULL       │NULL  │105       │math    │    
+    ├───────────┼──────┼──────────┼────────┤   
+    │NULL       │NULL  │107       │computer│
+    └───────────┴──────┴──────────┴────────┘
 
+###################
+#### Full Join ####
+###################
 
+Returns all records when there is a match in either left or right table
+ -> Syntax : SELECT column(s)
+             FROM tableA
+             LEFT JOIN tableB
+             ON tableA.col_name = tableB.col_name; 
+             UNION
+             SELECT *
+             FROM student
+             RIGHT JOIN course 
+             ON student.id = course.id;
+      Result
+    ┌───────────┬──────┬──────────┬────────┐              
+    │student_id │name  │student_id│course  │        
+    ├───────────┼──────┼──────────┼────────┤   
+    │101        │adam  │NULL      │NULL    │    
+    ├───────────┼──────┼──────────┼────────┤   
+    │102        │bob   │102       │english │    
+    ├───────────┼──────┼──────────┼────────┤   
+    │103        │casey │103       │science │    
+    ├───────────┼──────┼──────────┼────────┤   
+    │NULL       │NULL  │105       │math    │    
+    ├───────────┼──────┼──────────┼────────┤   
+    │NULL       │NULL  │107       │computer│
+    └───────────┴──────┴──────────┴────────┘
 
+#############################
+#### Left Exclusive Join ####
+#############################
 
+SELECT * FROM student as a LEFT JOIN course as b ON a.id = b.id 
+                                             WHERE b.id IS NULL;
 
+     Result
+    ┌───────────┬─────┬──────────┬────────┐              
+    │student_id │name │student_id│course  │    
+    ├───────────┼─────┼──────────┼────────┤   
+    │101        │adam │NULL      │NULL    │
+    └───────────┴─────┴──────────┴────────┘
 
+##############################
+#### Right Exclusive Join ####
+##############################
 
+SELECT * FROM student as a RIGHT JOIN course as b ON a.id = b.id 
+                                             WHERE a.id IS NULL;
+      Result
+    ┌───────────┬──────┬──────────┬────────┐              
+    │student_id │name  │student_id│course  │        
+    ├───────────┼──────┼──────────┼────────┤   
+    │NULL       │NULL  │105       │math    │    
+    ├───────────┼──────┼──────────┼────────┤   
+    │NULL       │NULL  │107       │computer│
+    └───────────┴──────┴──────────┴────────┘
 
+#############################
+#### Full Exclusive Join ####
+#############################
 
+SELECT * 
+FROM student as a 
+LEFT JOIN course as b ON a.id = b.id
+WHERE b.id IS NULL
 
+UNION 
 
+SELECT * 
+FROM student as a 
+RIGHT JOIN course as b 
+ON a.id = b.id
+WHERE a.id IS NULL;
 
+      Result
+    ┌───────────┬──────┬──────────┬────────┐              
+    │student_id │name  │student_id│course  │        
+    ├───────────┼──────┼──────────┼────────┤   
+    │101        │adam  │NULL      │NULL    │    
+    ├───────────┼──────┼──────────┼────────┤    
+    │NULL       │NULL  │105       │math    │    
+    ├───────────┼──────┼──────────┼────────┤   
+    │NULL       │NULL  │107       │computer│
+    └───────────┴──────┴──────────┴────────┘
+###################
+#### Self Join ####
+###################
 
+It is a regular join but the table is joined with itselft.
+ -> Syntax : SELECT column(s)
+             FROM table as a
+             JOIN table as b
+             ON a.col_name = b.col_name;
 
+    E.g.              employee
+         ┌───────────┬───────┬───────────┬────────┐              
+         │id         │name   │manager_id │course  │        
+         ├───────────┼───────┼───────────┼────────┤   
+         │101        │adam   │103        │NULL    │    
+         ├───────────┼───────┼───────────┼────────┤    
+         │102        │bob    │104        │math    │    
+         ├───────────┼───────┼───────────┼────────┤    
+         │103        │casey  │NULL       │math    │    
+         ├───────────┼───────┼───────────┼────────┤   
+         │104        │donald │103        │computer│
+         └───────────┴───────┴───────────┴────────┘
 
+    SELECT a.name as manager_name, b.name FROM employee as a JOIN employee 
 
+###############
+#### Union ####
+###############
 
+It is used to combine the result-set of two or more SELECT statements.
+Gives UNIQUE records.
 
+To use it
+ -> every SELECT should have same no. of columns
+ -> columns must have similar data types
+ -> columns in every SELECT should be in same order
 
+ -> Syntax : SELECT column(s) FROM tableA
+             UNION
+             SELECT column(s) FROM tableB
 
+   SELECT id FROM employee UNION SELECT manager_id FROM employee;
+   SELECT id FROM employee UNION ALL SELECT manager_id FROM employee;
 
+#########################
+#### SQL Sub Queries ####
+#########################
 
+A Subquery or Inner query or a Nested query is a query within another SQL query
+      ┌─────────────────────────┐   
+      │         Query           │
+      │   ┌────────────────┐    │
+      │   │      Sub       │    │
+      │   │     Query      │    │
+      │   └────────────────┘    │
+      └─────────────────────────┘
+    -> Syntax : SELECT column(s)
+                FROM table_name
+                WHERE col_name operator
+                (subquery);
+
+  # There are three places to write subqueries. Sub queries can be written inside
+   1. SELECT
+   2. FROM
+   3. WHERE clause
+  Example : Get names of all student who scored more than class average.
+            Step 1: Find the avg of class
+            Step 2: Find the names of students with marks > avg
+
+        SELECT * FROM student WHERE marks > (SELECT AVG(marks) FROM student);
+
+  Example1 : Find the names of all students with even roll numbers.
+             Step 1: Find the even roll numbers
+             Step 2: Find the names of students with even roll no
+
+        SELECT name, rollno FROM student WHERE rollno IN (SELECT rollno FROM 
+        student WHERE rollno % 2 = 0);
+
+  Example2 with FROM : Find the max marks from the students Delhi.
+                  Step 1: Find the students of Delhi.
+                  Step 2: Find their max marks using the sublist in Step
+
+        SELECT MAX(marks) FROM (SELECT * FROM student WHERE city = "Delhi") AS 
+        temp
+
+##################
+#### SQL View ####
+##################
+
+A view is a virtual talbe based on the result-set of an SQL statement.
+
+        table               views
+          |                   |
+        real               virtual
+          |
+      real data
+          |
+      operations
+
+ Note: A view always shows up-to-date data. The database engine recreates the 
+       view, every time a user queries it.
+
+    E.g.  CREATE VIEW view1 AS SELECT rollno, name, marks FROM student;
+          SELECT * FROM view1;
+
+          SELECT * FROM view1 WHERE marks > 90;
 

@@ -1,0 +1,13 @@
+1. find processor model in task manager
+2. then search it on google
+3. it will show intel official link
+4. open go to package specification section
+5. and find "Sockets Supported" if this value contains
+   1.BGA then you can not upgrade
+   2.PGA then you can upgrade but don't forget about number of pins
+     and new cpu must have same generation as in old cpu
+
+
+BGA - Ball Grid Array, soldring balls
+PGA - Pin Grid Array, pins in cpu
+LGA - Land Grid Array, pins in socket

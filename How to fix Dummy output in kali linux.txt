@@ -27,7 +27,7 @@ Method 2:(If Doesn't work, Follow 3rd Method)
 	     then type "apt purge --autoremove pipewire-pulse ; reboot" hit enter
 	     it perfectly worked in my case
 
-Method 3:(If This doesn't work too then find solution on internet)
+Method 3:(If This doesn't work too then find yourself on internet)
          
          open terminal as root user
          type "apt install pipewire-pulse" hit enter

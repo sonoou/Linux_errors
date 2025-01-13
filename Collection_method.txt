@@ -1,0 +1,54 @@
+########################
+## Collection Methods ##
+########################
+
+## Collection interface(Available in every class)
+	public boolean add(Object o)
+	public boolean addAll(Collection c)
+	public void clear()
+	public boolean contains(Object o)
+	public boolean isEmpty()
+	public Iterator iterator()
+	public boolean remove(Object o)
+	public int size()
+	public Object[] toArray()
+
+## Iterator interface
+	public boolean hasNext()
+	public Object next()
+	public Object remove()
+
+## ListIterator interface
+	public boolean hasNext()
+	public Object next()
+	public Object remove()
+	public boolean hasPrevious()
+	public Object previous()
+	public int nextIndex()
+	public int previousIndex()
+	public void add(Object o): insert the new object immediately before the
+	                           element which would be returned by the next() method.
+	public void set(Object o): replaces the last element in the list
+	                           retrieved by a next() or previous() operation
+
+## Enumeration interface
+	public boolean hasMoreElements()
+	public Object nextElement()
+
+## List interface
+	public void add(int index, Object o)
+	public boolean addAll(int index, Collection c)
+	public Object get(int index)
+	public ListIterator listIterator()
+	public Object remove(int index)
+	public Object set(int index, Object o)
+
+## Arrays class
+	public static <T> List<T> asList(T... a)
+
+## Vector class
+	public synchronized void ensureCapacity(int minCapacity)
+
+## Collections class
+	public static void reverse(List<?> list)
+

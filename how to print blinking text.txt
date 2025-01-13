@@ -1,8 +1,0 @@
-how to print blinking text:
-	"\033[38;7;5mYour string"
-
-how to print color text;
-
-	"\033[1;38;5;NmYour string"
-
-	replace N with 0 - 255 for different colors

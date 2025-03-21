@@ -16,7 +16,7 @@
 ## Iterator interface
 	public boolean hasNext()
 	public Object next()
-	public Object remove()
+	public Object remove() // removes the element returned by next()
 
 ## ListIterator interface
 	public boolean hasNext()
@@ -26,8 +26,11 @@
 	public Object previous()
 	public int nextIndex()
 	public int previousIndex()
+
 	public void add(Object o): insert the new object immediately before the
-	                           element which would be returned by the next() method.
+	                           element which would be returned by the next() 
+	                           method.
+
 	public void set(Object o): replaces the last element in the list
 	                           retrieved by a next() or previous() operation
 
@@ -43,12 +46,48 @@
 	public Object remove(int index)
 	public Object set(int index, Object o)
 
+## ArrayList<E> class
+    public void add(Object o)
+    public void remove(int index)
+    public int size()
+    public Iterator<E> iterator()
+    public Object[] toArray()
+    public <T> T[] toArray(T[] a)
+    public E get(int index)
+    public boolean contains(Object o)
+    public void ensureCapacity(int minCapacity)
+    public List<E> subList(int fromIndex, int toIndex) // toIndex excluded
+    public void trimToSize()
+    public void sort(Comparator<? super E> c)
+    public ListIterator<E> listIterator()
+    public ListIterator<E> listIterator(int index) 
+
+
 ## Arrays class
 	public static <T> List<T> asList(T... a)
 
 ## Vector class
+	public Vector(int initialCapacity, int capacityIncrement)
+	public synchronized void addElement(E obj)
 	public synchronized void ensureCapacity(int minCapacity)
+	public synchronized int capacity()
+	public synchronized int size()
+	public synchronized void trimToSize()
+	public Enumeration<E> elements()
+	public synchronized void removeElementAt(int index)
+	public synchronized Iterator<E> iterator()
+	public synchronized ListIterator<E> listIterator()
 
 ## Collections class
 	public static void reverse(List<?> list)
+	public static void shuffle(List<?> list)
+	public static void swap(List<?> list, int i, int j)
+	public static <T> List<T> synchronizedList(List<T> list)
+	public static <T extends Comparable<? super T>> void sort(List<T> list)
+	public static <T> void sort(List<T> list, Comparator<? super T> c)
 
+		Collection's sort method calls ArrayList's sort method
+		Java is making fool of us
+
+	public synchronized ListIterator<E> listIterator()
+	public synchronized ListIterator<E> listIterator(int index)

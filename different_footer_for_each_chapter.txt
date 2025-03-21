@@ -1,0 +1,16 @@
+one book but different footer for each chapter
+
+1. Insert a section break at the end of chapter
+  A. Place the cursor at the end of chapter 1
+  B. Go to Layout -> Breaks -> Section Break(Next Page)
+
+2. Unlink the footer from chapter 1
+  A. click inside the footer of chapter 2 
+     (first page of the chapter 2).
+  B. In the Header & Footer Tools, find the option
+     "Link to Previous" and disable it(uncheck it).
+
+3. Update the footer for chapter 2
+  A. Deleter "chapter 1" and replace it with "Chapter 2"
+  B. Ensure the page number field remains unchanged
+  C. The new footer will now apply only to chapter 2

@@ -2,11 +2,12 @@
 ## Java video names ##
 ######################
 
-148 - Starting AJAX
+144 - jsp directives and jsp action
+145 - 
+146 - working of custom tag, create custom tag,
+      programe link
+147 - get content of custome tag, Starting Expression language
+148 - Expression language, JSTL, Starting AJAX
 149 - AJAX notes, programe
 150 - AJAX programe, starting JSON
-
-Amazon Clone Project
-Technologies Used: HTML, CSS, JavaScript, Java, JSP, MySQL, AJAX, JSON
-
-Developed a fully functional Amazon clone with a focus on e-commerce features such as product browsing, user authentication, and order management. The front-end was built using HTML, CSS, and JavaScript, ensuring a responsive design across devices. For the back-end, I used Java and JSP to handle server-side logic and MySQL for database management, storing user data, product information, and order history. AJAX and JSON were employed for asynchronous data fetching and real-time updates, providing a smooth user experience. The project helped me improve my full-stack development skills, combining front-end and back-end technologies to create a dynamic e-commerce platform.
+ 

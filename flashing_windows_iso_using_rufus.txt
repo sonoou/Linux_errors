@@ -1,0 +1,91 @@
+Flashing a Windows ISO file using Rufus is a straightforward process.
+
+### Requirements:
+- A USB drive (at least 8GB recommended).
+- Rufus software (download from [rufus.ie](https://rufus.ie/)).
+- A Windows ISO file.
+
+### Steps to Flash Windows ISO using Rufus:
+1. Download and Install Rufus:
+   - Download the latest version of Rufus from [rufus.ie](https://rufus.ie/).
+   - Run the .exe file (Rufus is portable; no installation is needed).
+
+2. Insert Your USB Drive:
+   - Plug in the USB drive (it will be formatted, so back up important data first).
+
+3. Select the USB Drive in Rufus:
+   - Open Rufus.
+   - Under "Device", select your USB drive.
+
+4. Select the Windows ISO File:
+   - Click on "Select" and browse to the Windows .iso file.
+
+5. Choose Partition Scheme & Target System:
+   - For UEFI systems (modern PCs):
+     - Partition scheme: GPT
+     - File system: NTFS or FAT32
+     - Target system: UEFI (non-CSM)
+   - For older BIOS/Legacy systems:
+     - Partition scheme: MBR
+     - File system: NTFS
+     - Target system: BIOS (or UEFI-CSM)
+
+6. Click "Start":
+   - Rufus may ask to download additional files (e.g., when using Windows 11).
+   - Click Yes and proceed.
+
+7. Wait for the Process to Complete:
+   - It may take a few minutes to write the ISO to the USB.
+   - Once done, you will see "Ready" in the status bar.
+
+8. Boot from USB & Install Windows:
+   - Restart your PC.
+   - Enter BIOS (F2, F12, DEL, or ESC, depending on your PC).
+   - Select the USB drive as the boot device.
+   - Follow the Windows installation steps.
+
+#########################################################
+## To check system is using UEFI or Legacy (BIOS) mode ##
+#########################################################
+
+### Method 1: Check Using System Information (Windows)
+1. Press Win + R, type msinfo32, and hit Enter.
+2. In System Information, find "BIOS Mode":
+   - If it says UEFI, your system is using UEFI.
+   - If it says Legacy, your system is using Legacy BIOS.
+
+
+### Method 2: Check Using Disk Partition Style
+1. Press Win + X and select Disk Management.
+2. Find your main disk (C:), right-click it, and select Properties.
+3. Go to the Volumes tab.
+4. Look for Partition Style:
+   - GPT (GUID Partition Table) → Your system is using UEFI.
+   - MBR (Master Boot Record) → Your system is using Legacy BIOS.
+
+
+### Method 3: Check Using Command Prompt
+1. Open Command Prompt as Administrator.
+2. Run this command:
+   
+   wmic bios get smbiosbiosversion
+   
+3. If the output contains terms like UEFI, your system is using UEFI.
+
+Alternatively, check partition style:
+
+diskpart
+list disk
+
+- If a disk has an asterisk () under the GPT column, it means UEFI.
+- If there is no asterisk, it means Legacy BIOS.
+
+
+
+### Method 4: Check in BIOS Settings
+1. Restart your PC and enter BIOS/UEFI (Press F2, F12, DEL, or ESC, depending on your system).
+2. Look for options like:
+   - Boot Mode → If it says UEFI, then your system is using UEFI.
+   - If it says Legacy or CSM (Compatibility Support Module), then your system is in Legacy mode.
+
+Let me know if you need more help! 😊

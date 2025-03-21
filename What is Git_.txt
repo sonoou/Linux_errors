@@ -29,11 +29,11 @@ Configuring Git:
 	git config --list
 
 Git Clone & Status:
-	Clone - Cloning a repository on our local machine
+	clone - Cloning a repository on our local machine
 			git clone <- repository link ->
 
 	status - display the state of the code
-			git status
+			 git status
 
 Two step process (After modifying):
 	1. add
@@ -41,7 +41,7 @@ Two step process (After modifying):
 
 Four types of git status:
 	1. untracked - new files that git doesn't yet track even
-					you make changes it is still untracked
+				   you make changes it is still untracked
 
 	2. modified - changed
 
@@ -52,8 +52,8 @@ Four types of git status:
 
 Add & Commit:
 	add - adds new or changed files in your working directory
-			to the Git staging area.
-			git add <- file name ->
+		  to the Git staging area.
+		  git add <- file name ->
 
 	commit - it is the record of change
 				git commit -m "some message"
@@ -69,7 +69,7 @@ Push command:
 			Note: give PAT instead of password(new version)
 
 			How to get PAT:
-				git login -> click on profile -> settings -> 
+				login git webiste -> click on profile -> settings -> 
 				Developer settings -> Personal access token ->
 				Tokens (classic) -> generate & give permission ->
 				Generate token
@@ -86,8 +86,6 @@ Init Command:
 			git init
 			git remote add origin <- link of new repo ->
 			git remove -v (to verify remote)
-			git branch (to check branch)
-			git branch -M <- name off branch ->
 			git push -u origin main
 
 Git Branches:
@@ -99,11 +97,11 @@ Git Branches:
 				   ↑
 				Master
 
-	git branch  (to check branch)
-	git branch -M  (to rename branch)
-	git checkout <-branch name->  (to navigate)
-	git checkout -b <-branch name->  (create new branch)
-	git branch -d <-branch name-> (to delete branch)
+	Current branch name: git branch
+	Rename branch name:  git branch -M  <-new branch name->
+	Change branch:       git checkout <-branch name->
+	Create new branch:   git checkout -b <-branch name->
+	Delete branch:       git branch -d <-branch name->
 
 Merging Code:
 	Way 1: 
@@ -135,14 +133,13 @@ Undoing Changes:
 	Case 2: commited changes (for one commit)
 			git reset HEAD~1
 
-	Case 3: commited changes (for manu commits)
+	Case 3: commited changes (for many commits)
 			git reset <-commit hash->
 			git reset --hard <-commit hash->
 
 Fork:
 	A fork is a new repository that shares code and visibility
-	settings with the original'upstream'
-	repository.
+	settings with the original 'upstream' repository.
 	Fork is a rough copy.
 
 How to rename folder:

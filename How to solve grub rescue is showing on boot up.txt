@@ -22,7 +22,53 @@ once linux is started open terminal as root user
 type "update-grub" enter
 type "grub-install /dev/sda" enter
 
-if you got error like "grub-install: error: /usr/lib/grub/i386-pc/modinfo.sh doesn't exist. Please specify --target or --directory."
+# sub problem
 
+if you get error like "grub-install: error: /usr/lib/grub/i386-pc/modinfo.sh 
+doesn't exist. Please specify --target or --directory."
+                    OR
+Installing for x86_64-efi platform.
+grub-install: error: cannot find EFI directory.
+
+# solution
 then first "apt install grub-efi"
 then "grub-install /dev/sda"
+
+                    OR
+
+run this "fdisk -l" it will show your all partitions
+look for type "EFI System" and remember the location
+
+ fdisk -l output
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│Disk /dev/nvme0n1: 476.94 GiB, 512110190592 bytes, 1000215216 sectors            │
+│Disk model: MTFDKBA512TFK-1BC1AABHA                                              │
+│Units: sectors of 1 * 512 = 512 bytes                                            │
+│Sector size (logical/physical): 512 bytes / 512 bytes                            │
+│I/O size (minimum/optimal): 512 bytes / 512 bytes                                │
+│Disklabel type: gpt                                                              │
+│Disk identifier: ABE2417D-FB21-476F-A5B9-7C1C2A3B9350                            │
+│                                                                                 │
+│Device             Start        End   Sectors   Size Type                        │
+│/dev/nvme0n1p1      2048     534527    532480   260M EFI System                  │
+│/dev/nvme0n1p2    534528     567295     32768    16M Microsoft reserved          │
+│/dev/nvme0n1p3    567296  210286591 209719296   100G Microsoft basic data        │
+│/dev/nvme0n1p4 210288640  692017151 481728512 229.7G Microsoft basic data        │
+│/dev/nvme0n1p5 692019200  701784063   9764864   4.7G Linux swap                  │
+│/dev/nvme0n1p6 701784064  999010303 297226240 141.7G Linux filesystem            │
+│/dev/nvme0n1p7 999010304 1000202239   1191936   582M Windows recovery environment│
+└─────────────────────────────────────────────────────────────────────────────────┘
+
+Note: i have nvme SSD installed so in location it is show nvme0n1p1 up to 7
+      but in your case output might be different so just look for "EFI System"
+
+then "mount location/of/EFI/System /boot/efi" in my it is /dev/nvme0n1p1
+so the actual command should be
+     "mount /dev/nvme0n1p1 /boot/efi" 
+
+then run install command
+     "grub-install /dev/nvme0n1p1"
+
+
+
+
